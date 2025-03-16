@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bu4s3rcevh7c5"]
+[gd_scene load_steps=17 format=3 uid="uid://bu4s3rcevh7c5"]
 
 [ext_resource type="Script" uid="uid://fq87lx2ulagd" path="res://Codes/Day1_AfterPhylisophy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://pwxaal3fdvel" path="res://Assets/Bg-s/Bg_in_Road.jpg" id="2"]
@@ -11,7 +11,6 @@
 [ext_resource type="Shortcut" uid="uid://ffx53vby51kp" path="res://Codes/Buttons/MenuButtonLeave.tres" id="8_j48kx"]
 [ext_resource type="Script" uid="uid://d0q8uqg2m2mk" path="res://Codes/Saves_AfterPhylosophy.gd" id="9"]
 [ext_resource type="AudioStream" uid="uid://cha4yfb5cowr5" path="res://Assets/Music/Effects/Univer_bell.mp3" id="9_je486"]
-[ext_resource type="AudioStream" path="res://Assets/Music/button_music_ultra_short_speedx1.5.mp3" id="10"]
 [ext_resource type="AudioStream" uid="uid://cq6g2mts8dbd" path="res://Assets/Music/Effects/Crowd_univer.mp3" id="10_pyu67"]
 [ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="11"]
 [ext_resource type="Shortcut" uid="uid://cyi44313ku3ww" path="res://Codes/Buttons/MenuButtonEnter.tres" id="11_27n5o"]
@@ -474,7 +473,6 @@ text = "Удалить"
 [node name="buttons" type="AudioStreamPlayer2D" parent="ColorRect4/VBoxContainer/HBoxContainer"]
 position = Vector2(-6400, -1948)
 scale = Vector2(2, 2)
-stream = ExtResource("10")
 volume_db = -17.0
 
 [node name="PhraseNum2" type="RichTextLabel" parent="ColorRect4/VBoxContainer"]

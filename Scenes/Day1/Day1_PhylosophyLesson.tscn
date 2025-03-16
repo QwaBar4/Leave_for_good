@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://duadcu38o8jft" path="res://Assets/Bg-s/HumanFront.png" id="6_thj47"]
 [ext_resource type="Script" uid="uid://d4alloe5la250" path="res://Codes/PhylosophyLesson_saves.gd" id="7"]
 [ext_resource type="Shortcut" uid="uid://ffx53vby51kp" path="res://Codes/Buttons/MenuButtonLeave.tres" id="7_6uj7v"]
-[ext_resource type="AudioStream" path="res://Assets/Music/button_music_ultra_short_speedx1.5.mp3" id="8"]
+[ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="8"]
 [ext_resource type="AudioStream" uid="uid://c8o02xksevrry" path="res://Assets/Music/Effects/Steps1.mp3" id="8_thj47"]
 [ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="9"]
 [ext_resource type="AudioStream" uid="uid://cha4yfb5cowr5" path="res://Assets/Music/Effects/Univer_bell.mp3" id="9_tga8f"]

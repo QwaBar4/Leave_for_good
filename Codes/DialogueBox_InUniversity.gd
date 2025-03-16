@@ -68,13 +68,6 @@ func nextPhrase(ActionPhase):
 	$Action.bbcode_text = dialog[phraseNum]["Action"]
 	
 	$VBoxContainer5/Text.visible_characters = 0
-	if dialog[phraseNum]["Action"] == "4":
-		$AudioStreamPlayer2D2.play()
-	elif dialog[phraseNum]["Action"] == "2":
-		$AudioStreamPlayer2D2.stop()
-	elif dialog[phraseNum]["Action"] == "3":
-		$AudioStreamPlayer2D3.play()
-	
 	if (dialog[phraseNum]["Action"] == "0") or (dialog[phraseNum]["Action"] == "1"):
 		if dialog[phraseNum]["Action"] == "1":
 			n = 0.0
