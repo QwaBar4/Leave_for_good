@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv67stt0khcry"]
+
+[ext_resource type="Texture2D" uid="uid://bnlkvlchufbx8" path="res://Assets/Menu/Bg_Settings.png" id="1"]
+[ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="2"]
+[ext_resource type="AudioStream" uid="uid://dokqqwot8lxou" path="res://Assets/Music/Soundtrack/02-menu.mp3" id="3"]
+[ext_resource type="Script" uid="uid://50hg3vdkvv5l" path="res://Codes/Load.gd" id="4"]
+[ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="5_1vqx5"]
+
+[sub_resource type="GDScript" id="GDScript_spyir"]
+resource_name = "base"
+script/source = "extends Control
+
+func _on_button_2_pressed():
+	get_tree().change_scene_to_file('res://Scenes/Menu.tscn')
+
+
+
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_spyir")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1")
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.410156
+anchor_top = 0.0625
+anchor_right = 0.614453
+anchor_bottom = 0.173611
+offset_bottom = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/background_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 100
+text = "Загрузить"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441797
+anchor_top = 0.840278
+anchor_right = 0.591016
+anchor_bottom = 0.944444
+offset_left = -31.0
+offset_right = -31.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 100
+text = "<<<<"
+
+[node name="sett_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 264.0
+offset_right = 1860.0
+offset_bottom = 992.0
+size_flags_vertical = 3
+
+[node name="SaveContainer" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 1000.0
+offset_right = 3016.0
+offset_bottom = 1215.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Load" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 70
+text = "Загрузить"
+
+[node name="Delete" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 70
+text = "Удалить"
+
+[node name="button_music" type="AudioStreamPlayer2D" parent="VBoxContainer/HBoxContainer"]
+position = Vector2(-1400, -2000)
+scale = Vector2(2, 2)
+stream = ExtResource("5_1vqx5")
+
+[node name="Timer" type="Timer" parent="VBoxContainer/HBoxContainer"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="VBoxContainer3/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Load" to="VBoxContainer" method="_on_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Delete" to="VBoxContainer" method="_on_delete_pressed"]

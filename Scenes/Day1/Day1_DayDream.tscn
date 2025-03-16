@@ -1,0 +1,496 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0giplsa2cd2y"]
+
+[ext_resource type="Script" uid="uid://c46eevt6fm81w" path="res://Codes/Day1_DayDream.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://sak4jaf7453l" path="res://Assets/Bg-s/DayDreamBg.jpg" id="2"]
+[ext_resource type="Texture2D" uid="uid://csuidiadogpwi" path="res://Assets/Bg-s/Dialogue_bg.png" id="3"]
+[ext_resource type="Script" uid="uid://ce17ed3qq64tt" path="res://Codes/DialogueBox_DayDream.gd" id="4"]
+[ext_resource type="AudioStream" uid="uid://cj6ir8uqt5qw1" path="res://Assets/Music/Effects/glitch2.mp3" id="5_7h58i"]
+[ext_resource type="AudioStream" uid="uid://5yd0t8aaayyf" path="res://Assets/Music/Effects/glitch1.mp3" id="6_8oh7c"]
+[ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="7"]
+[ext_resource type="Script" uid="uid://cej4gnwcutkrb" path="res://Codes/Saves_DayDream.gd" id="8"]
+[ext_resource type="Shortcut" uid="uid://ffx53vby51kp" path="res://Codes/Buttons/MenuButtonLeave.tres" id="8_7h58i"]
+[ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="10"]
+[ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="10_7h58i"]
+[ext_resource type="Shortcut" uid="uid://cyi44313ku3ww" path="res://Codes/Buttons/MenuButtonEnter.tres" id="11_8oh7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmlne"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -22.0
+offset_top = -161.0
+offset_right = 2578.0
+offset_bottom = 1759.0
+texture = ExtResource("2")
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+offset_left = 568.0
+offset_top = 1004.0
+offset_right = 1230.0
+offset_bottom = 1179.0
+scale = Vector2(2.2, 2.2)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("3")
+expand_mode = 1
+script = ExtResource("4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+stream = ExtResource("5_7h58i")
+volume_db = -22.255
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+stream = ExtResource("6_8oh7c")
+volume_db = -20.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 13.1818
+offset_top = 13.6364
+offset_right = 579.182
+offset_bottom = 203.636
+scale = Vector2(0.26, 0.26)
+
+[node name="Name" type="RichTextLabel" parent="DialogueBox/VBoxContainer"]
+texture_filter = 6
+texture_repeat = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("7")
+theme_override_fonts/mono_font = ExtResource("7")
+theme_override_fonts/italics_font = ExtResource("7")
+theme_override_fonts/bold_italics_font = ExtResource("7")
+theme_override_fonts/bold_font = ExtResource("7")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "Текст"
+tab_size = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 57.0
+offset_right = 3157.0
+offset_bottom = 444.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Text" type="RichTextLabel" parent="DialogueBox/VBoxContainer5"]
+custom_minimum_size = Vector2(-1.37, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/text_highlight_h_padding = 6
+theme_override_fonts/normal_font = ExtResource("7")
+theme_override_font_sizes/normal_font_size = 100
+text = "Это крутой текст"
+tab_size = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="DialogueBox"]
+
+[node name="Action" type="RichTextLabel" parent="DialogueBox"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.669621
+anchor_top = 0.254793
+anchor_right = 0.985317
+anchor_bottom = 1.41677
+theme_override_font_sizes/normal_font_size = 86
+text = "aa"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DialogueBox"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.751346
+anchor_top = -4.52023
+anchor_right = 1.71779
+anchor_bottom = 2.52203
+offset_right = 70.9999
+offset_bottom = 31.0
+size_flags_vertical = 3
+
+[node name="Variant2" type="Button" parent="DialogueBox/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+text = "Выбор1"
+
+[node name="Timer2" type="Timer" parent="DialogueBox"]
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="DialogueBox"]
+visible = false
+custom_minimum_size = Vector2(14.015, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.536797
+anchor_top = -0.0672209
+anchor_right = 0.973964
+anchor_bottom = 0.239117
+offset_left = -4.36362
+offset_top = 19.5454
+offset_right = 147.762
+offset_bottom = 121.045
+scale = Vector2(0.3, 0.3)
+metadata/_edit_use_anchors_ = true
+
+[node name="Variant1" type="Button" parent="DialogueBox/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "Да"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="DialogueBox"]
+visible = false
+custom_minimum_size = Vector2(0.185, 0)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.828122
+anchor_top = 0.0704224
+anchor_right = 1.04273
+anchor_bottom = 0.934735
+offset_left = -44.5454
+offset_top = 2.57492e-05
+offset_right = 233.774
+offset_bottom = 22.2676
+scale = Vector2(0.3, 0.3)
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Variant11" type="Button" parent="DialogueBox/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "Нет"
+
+[node name="Check_Yuri" type="Button" parent="DialogueBox"]
+visible = false
+layout_mode = 0
+offset_left = 607.0
+offset_top = 273.0
+offset_right = 625.0
+offset_bottom = 292.0
+
+[node name="Check_Alisa" type="Button" parent="DialogueBox"]
+visible = false
+layout_mode = 0
+offset_left = 562.727
+offset_top = 276.364
+offset_right = 584.727
+offset_bottom = 288.364
+
+[node name="check_end" type="Button" parent="DialogueBox"]
+visible = false
+layout_mode = 0
+offset_left = 490.0
+offset_top = 258.0
+offset_right = 510.0
+offset_bottom = 279.0
+
+[node name="In_sc2" type="ColorRect" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 222.0
+offset_right = 981.0
+offset_bottom = 945.0
+rotation = 0.785398
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="DialogueBox/In_sc2"]
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = -1597.0
+offset_right = 2571.0
+offset_bottom = -15.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect3"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 300.0
+offset_right = 1808.0
+offset_bottom = 490.0
+scale = Vector2(0.6, 0.6)
+
+[node name="continue" type="Button" parent="ColorRect3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 130
+text = "Продолжить"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 450.0
+offset_right = 2028.0
+offset_bottom = 668.0
+scale = Vector2(0.6, 0.6)
+
+[node name="New" type="Button" parent="ColorRect3/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 150
+shortcut = ExtResource("8_7h58i")
+text = "Сохранить игру"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 620.0
+offset_right = 2028.0
+offset_bottom = 838.0
+scale = Vector2(0.6, 0.6)
+
+[node name="load" type="Button" parent="ColorRect3/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 150
+text = "Загрузить игру"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 2
+offset_left = 1000.0
+offset_top = 800.0
+offset_right = 1783.0
+offset_bottom = 1018.0
+scale = Vector2(0.6, 0.6)
+
+[node name="options" type="Button" parent="ColorRect3/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 150
+text = "Настройки"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 2
+offset_left = 1000.0
+offset_top = 1000.0
+offset_right = 1763.0
+offset_bottom = 1218.0
+scale = Vector2(0.6, 0.6)
+
+[node name="exit" type="Button" parent="ColorRect3/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 150
+text = "Выход"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -3020.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 1442.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect2"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 2200.0
+offset_top = 250.0
+offset_right = 2458.0
+offset_bottom = 403.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Sound" type="Button" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 100
+text = "Вкл"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 220.0
+offset_right = 655.0
+offset_bottom = 467.0
+scale = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("7")
+theme_override_font_sizes/normal_font_size = 140
+text = "Звук"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 1000.0
+offset_right = 1390.0
+offset_bottom = 1149.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Sound2" type="Button" parent="ColorRect2/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 100
+text = "Назад"
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 2600.0
+offset_top = -3.0
+offset_right = 5618.0
+offset_bottom = 1442.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect4"]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 60.0
+offset_right = 1824.0
+offset_bottom = 307.0
+scale = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect4/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("7")
+theme_override_font_sizes/normal_font_size = 140
+text = "Загрузить игру"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 1115.0
+offset_top = 1100.0
+offset_right = 1405.0
+offset_bottom = 1249.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Exit2" type="Button" parent="ColorRect4/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 100
+text = "Назад"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 263.0
+offset_right = 1890.0
+offset_bottom = 922.0
+size_flags_vertical = 3
+
+[node name="SaveContainer" type="VBoxContainer" parent="ColorRect4/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 977.0
+offset_right = 3200.0
+offset_bottom = 1113.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect4/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Сохранить"
+
+[node name="Load" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Загрузить"
+
+[node name="Delete" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Удалить"
+
+[node name="buttons" type="AudioStreamPlayer2D" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+position = Vector2(-6400, -1948)
+scale = Vector2(2, 2)
+stream = ExtResource("10_7h58i")
+volume_db = -17.0
+
+[node name="PhraseNum2" type="RichTextLabel" parent="ColorRect4/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 1.59998
+offset_right = 68.0
+offset_bottom = 62.6
+scale = Vector2(2, 2)
+size_flags_vertical = 3
+
+[node name="Menu_button" type="Button" parent="VBoxContainer3"]
+modulate = Color(1, 1, 1, 0.560784)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kmlne")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kmlne")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kmlne")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kmlne")
+shortcut = ExtResource("11_8oh7c")
+icon = ExtResource("10")
+
+[connection signal="pressed" from="DialogueBox/VBoxContainer2/Variant2" to="DialogueBox" method="_on_variant_2_pressed"]
+[connection signal="pressed" from="DialogueBox/VBoxContainer3/Variant1" to="DialogueBox" method="_on_variant_1_pressed"]
+[connection signal="pressed" from="DialogueBox/VBoxContainer4/Variant11" to="DialogueBox" method="_on_variant_11_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer2/New" to="ColorRect4/VBoxContainer" method="_on_new_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer3/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer4/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer5/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer3/Sound2" to="." method="_on_sound_2_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer3/Exit2" to="." method="_on_exit_2_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Save" to="ColorRect4/VBoxContainer" method="_on_save_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Load" to="ColorRect4/VBoxContainer" method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Delete" to="ColorRect4/VBoxContainer" method="_on_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Menu_button" to="." method="_on_menu_button_pressed"]

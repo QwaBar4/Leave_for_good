@@ -1,0 +1,52 @@
+GDRE Tools v0.9.0-beta.1
+Windows 10.0.19045, NVIDIA GeForce RTX 2060, opengl3
+Opening file: D:/C/Leave for good.exe
+Guessing bytecode revision from engine version: 4.2.1 (rev 0x77af6ca)
+Verified 183 files, no errors detected!
+Extracted 183 files, no errors detected!
+WARNING: Converting lossy imports, you may lose fidelity for indicated assets when re-importing upon loading the project
+   at: ImportExporter::_export_imports (modules\gdsdecomp\utility\import_exporter.cpp:241)
+Exporting resources in parallel...
+Saved project config project.godot.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     0
+Failed scripts:                         0
+Imported resources for export session:  59
+Successfully converted:                 59
+Lossy:                                  7
+Rewrote metadata:                       41
+Non-importable conversions:             1
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+The following files were converted from an import that was stored lossy.
+You may lose fidelity when re-importing these files upon loading the project.
+res://.godot/imported/Bg_in_Road.jpg-2bc566909ef02a1d0369b0ea8fb71624.ctex to res://Assets/Bg-s/Bg_in_Road.jpg
+res://.godot/imported/DayDreamBg.jpg-bbd02249ee85955c5ecf33280ec24978.ctex to res://Assets/Bg-s/DayDreamBg.jpg
+res://.godot/imported/Dream_bg1.jpg-d04d5dad9adb7cde7440c3928d79b2ae.ctex to res://Assets/Bg-s/Dream_bg1.jpg
+res://.godot/imported/In_university_bg.jpg-1cda80a73e0400c649ad9e34ef3407af.ctex to res://Assets/Bg-s/In_university_bg.jpg
+res://.godot/imported/Plylosophy_Cabinet_bg.jpg-c41e0a3aeb9fae858ac514d81f401984.ctex to res://Assets/Bg-s/Plylosophy_Cabinet_bg.jpg
+res://.godot/imported/Univer_bg1.jpg-7508da626bd9d5a8e7f6e231f2d92010.ctex to res://Assets/Bg-s/Univer_bg1.jpg
+res://.godot/imported/in_cabinet.jpg-fa1195463ab32248331b8ad4ae293f94.ctex to res://Assets/Bg-s/in_cabinet.jpg
+------
+
+The following files were converted and saved to a non-original path, but did not have their import data rewritten.
+These files will not be re-imported when loading the project.
+res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex to res://.assets/icon.png
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.2.1 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

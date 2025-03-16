@@ -1,0 +1,266 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmtuje3w2vhgf"]
+
+[ext_resource type="Texture2D" uid="uid://glqlm2233ryl" path="res://Assets/Menu/Bg_dark_mini.png" id="1"]
+[ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="2"]
+[ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="3_s2c3o"]
+[ext_resource type="AudioStream" uid="uid://dokqqwot8lxou" path="res://Assets/Music/Soundtrack/02-menu.mp3" id="4_ma218"]
+
+[sub_resource type="GDScript" id="GDScript_t21s3"]
+resource_name = "InGamePlay"
+script/source = "extends Control
+
+var in_scene0 = 0
+var in_scene = 0
+var save_path = \"user://saves/save1.save\"
+
+func load_data_scene0():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		in_scene0 = file.get_var(in_scene0)
+		return in_scene0
+	else:
+		print(\"No data\")
+		in_scene0 = 0
+		return in_scene0
+
+
+func _ready():
+	var i = 0
+	while i < 1:
+		await get_tree().create_timer(0.0001).timeout
+		$CanvasModulate.color = Color(i, i, i)
+		i+=0.05
+	await get_tree().create_timer(0.5).timeout
+	print(load_data_scene0())
+	self
+
+
+func _on_button_pressed():
+	var i = 1
+	$buttons.play()
+	while i > 0:
+		await get_tree().create_timer(0.000001).timeout
+		$CanvasModulate.color = Color(i, i, i)
+		i+=-0.1
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file('res://Scenes/Day1/Day1_dream.tscn')
+
+	
+
+
+func _on_button_2_pressed():
+	var i = 1
+	$buttons.play()
+	while i > 0:
+		await get_tree().create_timer(0.000001).timeout
+		$CanvasModulate.color = Color(i, i, i)
+		i+=-0.1
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file('res://Scenes/Settings.tscn')
+
+func _on_button_3_pressed():
+	var i = 1
+	$buttons.play()
+	while i > 0:
+		await get_tree().create_timer(0.000001).timeout
+		$CanvasModulate.color = Color(i, i, i)
+		i+=-0.1
+	await get_tree().create_timer(0.5).timeout
+	get_tree().quit()
+#
+#func _input(event):
+	#print(event.as_text())
+
+func _on_button_4_pressed():
+	var i = 1
+	$buttons.play()
+	while i > 0:
+		await get_tree().create_timer(0.000001).timeout
+		$CanvasModulate.color = Color(i, i, i)
+		i+=-0.1
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file('res://Scenes/Load.tscn')
+
+func _on_continue_pressed():
+	match load_data_scene0():
+		1:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_dream.tscn')
+		2:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_WakeUp.tscn')
+		3:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_InRoad.tscn')
+		4:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_InUniversity.tscn')
+		5:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_PhylosophyLesson.tscn')
+		6:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_AfterPhylisophy.tscn')
+		7:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_Returned.tscn')
+		8:
+			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_DayDream.tscn')
+
+
+func _on_save_1_pressed():
+	get_tree().change_scene_to_file('Game_scene1_home.tscn')
+"
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchor_left = -0.00273437
+anchor_top = -0.000694444
+anchor_right = 1.0027
+anchor_bottom = 1.0003
+offset_right = -25.4841
+offset_bottom = -1.44019
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01, 1.001)
+script = SubResource("GDScript_t21s3")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 2
+anchor_left = 0.701656
+anchor_top = 0.80198
+anchor_right = 0.8904
+anchor_bottom = 0.936703
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.689612
+anchor_top = 0.165114
+anchor_right = 0.887381
+anchor_bottom = 0.287337
+offset_left = -25.7433
+offset_top = -87.7628
+offset_right = 47.2566
+offset_bottom = -87.763
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Continue" type="Button" parent="VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.65098, 0.65098, 0.65098, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 87
+text = "Продолжить"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.689612
+anchor_top = 0.165114
+anchor_right = 0.887381
+anchor_bottom = 0.287337
+offset_left = -26.7333
+offset_top = 142.237
+offset_right = 54.2668
+offset_bottom = 142.237
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.65098, 0.65098, 0.65098, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 87
+text = "Новая игра"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1739.6
+offset_top = 610.0
+offset_right = 2321.6
+offset_bottom = 815.0
+
+[node name="Button4" type="Button" parent="VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 100
+text = "Загрузить"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.676014
+anchor_top = 0.595935
+anchor_right = 0.913808
+anchor_bottom = 0.745241
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 87
+text = "Настройки
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.701656
+anchor_top = 0.80198
+anchor_right = 0.890793
+anchor_bottom = 0.938786
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 87
+text = "Выход"
+
+[node name="buttons" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s2c3o")
+volume_db = -20.433
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Timer" type="Timer" parent="CanvasModulate"]
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ma218")
+volume_db = -25.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer5/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button3" to="." method="_on_button_3_pressed"]

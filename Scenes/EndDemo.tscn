@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://duf7mk51x306q"]
+
+[ext_resource type="Script" uid="uid://dqmh22r54jip7" path="res://Codes/DemoDend.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 2570.0
+offset_bottom = 1449.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 516.0
+offset_right = 5981.0
+offset_bottom = 2025.0
+scale = Vector2(0.47, 0.47)
+theme_override_fonts/normal_font = ExtResource("2")
+theme_override_font_sizes/normal_font_size = 446
+text = "Конец Демо версии"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

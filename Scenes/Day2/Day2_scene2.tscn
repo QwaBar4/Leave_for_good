@@ -1,0 +1,575 @@
+[gd_scene load_steps=11 format=3 uid="uid://01m8ebj7x77p"]
+
+[ext_resource type="Script" uid="uid://c0qvfarc7vy6x" path="res://Codes/Game_scene2_road_to_univer.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://wrj86yp73uai" path="res://Assets/Bg-s/Dialojie.png" id="2"]
+[ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="3"]
+[ext_resource type="AudioStream" uid="uid://c8o02xksevrry" path="res://Assets/Music/Steps1.mp3" id="4"]
+[ext_resource type="AudioStream" uid="uid://dbabtec1ohipr" path="res://Assets/Music/bus_sounds.mp3" id="5"]
+[ext_resource type="Texture2D" uid="uid://brlp21vll76ml" path="res://Assets/Menu/eye_blind.png" id="6"]
+[ext_resource type="Script" uid="uid://dm757v1hvqo06" path="res://Scenes/Day2/Day2_scene2.gd" id="7"]
+[ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="8"]
+
+[sub_resource type="GDScript" id="GDScript_opbpk"]
+script/source = "extends TextureRect
+
+@export var dialogPath = \"res://dialogues/Dialog_scene2.json\"
+@export var TextSpeed = float(0.05)
+
+var dialog
+
+var EndScene = false
+var phraseNum = 0
+var finished = false
+
+func _ready():
+	$AudioStreamPlayer2D.play()
+	$Timer.wait_time = TextSpeed
+	dialog = getDialog()
+	assert(dialog, \"Dialog not НАЙДЕН ФААААК\")
+	nextPhrase(\"0\")
+
+func end_scene(EndScene):
+	if EndScene:
+		get_tree().change_scene_to_file('res://Scenes/Day2/Day2_scene3.tscn')
+		return
+
+func _process(delta):
+	if EndScene:
+		end_scene(EndScene)
+
+func getDialog() -> Array:
+	var f = FileAccess.open(dialogPath, FileAccess.READ)
+	assert(f.file_exists, \"No file named this\")
+	
+	f.open(dialogPath,FileAccess.READ)
+	
+	var json = f.get_as_text()
+
+	var output = JSON.parse_string(json)
+	
+	if typeof(output) == TYPE_ARRAY:
+		return output
+	else:
+		return []
+
+func nextPhrase(ActionPhase):
+	$PhraseNum1.text = str(phraseNum)
+	if phraseNum >= len(dialog):
+		$VBoxContainer2.visible = false
+		$In_sc2.size = Vector2(600, 600)
+		$In_sc2.position = Vector2(-365, -1300)
+		for i in range(-1200,-500, 60):
+			$In_sc2.position = Vector2(-365, i)
+			await get_tree().create_timer(0.00000000005).timeout
+		EndScene = true
+		await get_tree().create_timer(1).timeout
+		return
+		
+	finished = false
+	$VBoxContainer/Name.bbcode_text = dialog[phraseNum][\"Name\"]
+	$VBoxContainer5/Text.bbcode_text = dialog[phraseNum][\"Text\"]
+	$Action.bbcode_text = dialog[phraseNum][\"Action\"]
+	
+	$VBoxContainer5/Text.visible_characters = 0
+	
+	if dialog[phraseNum][\"Action\"] == \"0\" or dialog[phraseNum][\"Action\"] == \"1\":
+		if dialog[phraseNum][\"Action\"] == \"1\":
+			$AudioStreamPlayer2D.stop()
+			$In_sc2.rotation = 0
+			$In_sc2.position = Vector2(-100, -80)
+			for i in range(-100,3000, 60):
+				$In_sc2.position = Vector2(i, -80)
+				await get_tree().create_timer(0.00000000005).timeout
+		while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):
+			$VBoxContainer5/Text.visible_characters += 1
+			await get_tree().create_timer(0.02).timeout
+		
+	else:
+		finished = true
+		phraseNum += 1
+		nextPhrase(ActionPhase)
+		return
+	
+	finished = true
+	print(phraseNum,\" \", dialog[phraseNum][\"Action\"]) 
+	phraseNum += 1
+	#if dialog[phraseNum][\"Action\"] == \"1\":
+		#
+	return
+
+func _on_variant_2_pressed():
+	var ActionPhase = \"0\"
+	if finished:
+		nextPhrase(ActionPhase)
+	elif !finished:
+		while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):#Ускорение вывода букв, если не закончено: скорость увеличена
+			$VBoxContainer5/Text.visible_characters += 2
+			await get_tree().create_timer(0.000000002).timeout
+			
+
+
+	
+		
+#Если action phase = 1: создание двух вариантов ответа и исчезновение основной невидимой кнопки
+
+#elif dialog[phraseNum][\"Action\"] == \"1\":
+	#while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):
+		#$VBoxContainer5/Text.visible_characters += 1
+		#await get_tree().create_timer(0.05).timeout
+	#$VBoxContainer2.visible = false
+	#$VBoxContainer3.visible = true
+	#$VBoxContainer4.visible = true
+
+#Код для диалоговых выборов, при нажатии исчезает другой элемент и vbox растягивается на весь экран
+#func _on_variant_1_pressed():
+	#$VBoxContainer4.visible = false
+	#$VBoxContainer3.modulate = Color(1, 1, 1, 0)
+	#$VBoxContainer3.size = Vector2(1400,1400)
+	#$VBoxContainer3.position = Vector2(-400, -550)
+	#
+	#var ActionPhase = \"2\"
+	#print(phraseNum)
+	#if finished:
+		#if phraseNum < 14:
+			#if dialog[phraseNum][\"Action\"] == ActionPhase:
+				#nextPhrase(ActionPhase)
+			#else:
+				#finished = true
+				#nextPhrase(ActionPhase)
+		#else:
+			#queue_free()
+	#elif !finished:
+		#while ($Text.visible_characters < len($Text.text)):
+			#$Text.visible_characters += 2
+			#await get_tree().create_timer(0.000000002).timeout
+#
+#
+#func _on_variant_11_pressed():
+	#$VBoxContainer3.visible = false
+	#$VBoxContainer4.modulate = Color(1, 1, 1, 0)
+	#$VBoxContainer4.size = Vector2(1400,1400)
+	#$VBoxContainer4.position = Vector2(-400, -550)
+	#
+	#var ActionPhase = \"0\"
+	#if finished:
+		#nextPhrase(ActionPhase)
+
+
+
+
+
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18d3g"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 2582.0
+offset_bottom = 1461.0
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+offset_left = 760.0
+offset_top = 1040.0
+offset_right = 1327.0
+offset_bottom = 1182.0
+scale = Vector2(2.2, 2.2)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("2")
+expand_mode = 1
+script = SubResource("GDScript_opbpk")
+
+[node name="In_sc2" type="ColorRect" parent="DialogueBox"]
+layout_mode = 0
+offset_left = -365.0
+offset_top = -490.0
+offset_right = 235.0
+offset_bottom = -147.0
+scale = Vector2(2, 2)
+color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[node name="Timer" type="Timer" parent="DialogueBox/In_sc2"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 575.0
+offset_bottom = 187.0
+scale = Vector2(0.35, 0.35)
+
+[node name="Name" type="RichTextLabel" parent="DialogueBox/VBoxContainer"]
+texture_filter = 6
+texture_repeat = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3")
+theme_override_fonts/bold_font = ExtResource("3")
+theme_override_fonts/italics_font = ExtResource("3")
+theme_override_fonts/bold_italics_font = ExtResource("3")
+theme_override_fonts/mono_font = ExtResource("3")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "Текст"
+tab_size = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 50.0
+offset_right = 2653.0
+offset_bottom = 473.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Text" type="RichTextLabel" parent="DialogueBox/VBoxContainer5"]
+custom_minimum_size = Vector2(-1.37, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/text_highlight_h_padding = 6
+theme_override_fonts/normal_font = ExtResource("3")
+theme_override_font_sizes/normal_font_size = 100
+text = "Это крутой текст"
+tab_size = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="DialogueBox"]
+
+[node name="Action" type="RichTextLabel" parent="DialogueBox"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.669621
+anchor_top = 0.254793
+anchor_right = 0.985317
+anchor_bottom = 1.41677
+theme_override_font_sizes/normal_font_size = 86
+text = "aa"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DialogueBox"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.751346
+anchor_top = -4.52023
+anchor_right = 1.71779
+anchor_bottom = 2.52203
+offset_right = 70.9999
+offset_bottom = 31.0
+size_flags_vertical = 3
+
+[node name="Variant2" type="Button" parent="DialogueBox/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+text = "Выбор1"
+
+[node name="Timer2" type="Timer" parent="DialogueBox"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DialogueBox"]
+stream = ExtResource("4")
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="DialogueBox"]
+stream = ExtResource("5")
+autoplay = true
+
+[node name="PhraseNum1" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 316.0
+offset_right = 79.0
+offset_bottom = 364.0
+
+[node name="Eye_button" type="Button" parent="."]
+offset_left = 1900.0
+offset_top = 1050.0
+offset_right = 2471.0
+offset_bottom = 1617.0
+scale = Vector2(0.15, 0.15)
+size_flags_vertical = 3
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+icon = ExtResource("6")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = -1597.0
+offset_right = 2571.0
+offset_bottom = -15.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect3"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 300.0
+offset_right = 1808.0
+offset_bottom = 490.0
+scale = Vector2(0.6, 0.6)
+
+[node name="continue" type="Button" parent="ColorRect3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 130
+text = "Продолжить"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 450.0
+offset_right = 2028.0
+offset_bottom = 668.0
+scale = Vector2(0.6, 0.6)
+
+[node name="New" type="Button" parent="ColorRect3/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 150
+text = "Сохранить игру"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 620.0
+offset_right = 2028.0
+offset_bottom = 838.0
+scale = Vector2(0.6, 0.6)
+
+[node name="load" type="Button" parent="ColorRect3/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 150
+text = "Загрузить игру"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 2
+offset_left = 1000.0
+offset_top = 800.0
+offset_right = 1783.0
+offset_bottom = 1018.0
+scale = Vector2(0.6, 0.6)
+
+[node name="options" type="Button" parent="ColorRect3/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 150
+text = "Настройки"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 2
+offset_left = 1000.0
+offset_top = 1000.0
+offset_right = 1763.0
+offset_bottom = 1218.0
+scale = Vector2(0.6, 0.6)
+
+[node name="exit" type="Button" parent="ColorRect3/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 150
+text = "Выход"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -3020.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 1442.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect2"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 2200.0
+offset_top = 250.0
+offset_right = 2458.0
+offset_bottom = 403.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Sound" type="Button" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 100
+text = "Вкл"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 220.0
+offset_right = 655.0
+offset_bottom = 467.0
+scale = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3")
+theme_override_font_sizes/normal_font_size = 140
+text = "Звук"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 1000.0
+offset_right = 1390.0
+offset_bottom = 1149.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Sound2" type="Button" parent="ColorRect2/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 100
+text = "Назад"
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 2600.0
+offset_top = -3.0
+offset_right = 5618.0
+offset_bottom = 1442.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect4"]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 60.0
+offset_right = 1824.0
+offset_bottom = 307.0
+scale = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect4/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3")
+theme_override_font_sizes/normal_font_size = 140
+text = "Загрузить игру"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 1115.0
+offset_top = 1100.0
+offset_right = 1405.0
+offset_bottom = 1249.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Exit2" type="Button" parent="ColorRect4/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 100
+text = "Назад"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 263.0
+offset_right = 1890.0
+offset_bottom = 922.0
+size_flags_vertical = 3
+
+[node name="SaveContainer" type="VBoxContainer" parent="ColorRect4/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 977.0
+offset_right = 3200.0
+offset_bottom = 1113.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect4/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Сохранить"
+
+[node name="Load" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Загрузить"
+
+[node name="Delete" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Удалить"
+
+[node name="PhraseNum2" type="RichTextLabel" parent="ColorRect4/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 1.59998
+offset_right = 68.0
+offset_bottom = 62.6
+scale = Vector2(2, 2)
+size_flags_vertical = 3
+
+[node name="Menu_button" type="Button" parent="VBoxContainer3"]
+modulate = Color(1, 1, 1, 0.560784)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_18d3g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_18d3g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_18d3g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18d3g")
+icon = ExtResource("8")
+
+[connection signal="ready" from="DialogueBox/In_sc2" to="." method="_on_out_fromsc_1_ready"]
+[connection signal="ready" from="DialogueBox/In_sc2" to="." method="_on_in_sc_2_ready"]
+[connection signal="pressed" from="DialogueBox/VBoxContainer2/Variant2" to="DialogueBox" method="_on_variant_2_pressed"]
+[connection signal="pressed" from="Eye_button" to="." method="_on_eye_button_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer2/New" to="ColorRect4/VBoxContainer" method="_on_new_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer3/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer4/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer5/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer3/Sound2" to="." method="_on_sound_2_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer3/Exit2" to="." method="_on_exit_2_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Save" to="ColorRect4/VBoxContainer" method="_on_save_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Load" to="ColorRect4/VBoxContainer" method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Delete" to="ColorRect4/VBoxContainer" method="_on_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Menu_button" to="." method="_on_menu_button_pressed"]
