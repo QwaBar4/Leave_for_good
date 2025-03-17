@@ -3,7 +3,7 @@ extends TextureRect
 @export var dialogPath = "res://dialogues/Dialog_scene1.json"
 @export var TextSpeed = float(0.05)
 
-var save_p_path = "res://Saves/Save2.save"
+var save_p_path = "user://saves/Save2.save"
 var dialog
 
 var EndScene = false

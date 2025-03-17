@@ -12,7 +12,7 @@ script/source = "extends Control
 var in_scene0 = 0
 var in_scene = 0
 var save_path = \"user://saves/save1.save\"
-var save_p_path = \"res://Saves/Save2.save\"
+var save_p_path = \"user://saves/Save2.save\"
 var Person_choice = 0
 
 func load_data_scene0():

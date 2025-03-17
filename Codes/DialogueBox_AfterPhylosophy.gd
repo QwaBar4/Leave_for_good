@@ -5,7 +5,7 @@ extends TextureRect
 @onready var Yuri_sprite: TextureRect = $Yuri
 @onready var Felice_sprite: TextureRect = $Felice
 
-var save_p_path = "res://Saves/Save2.save"
+var save_p_path = "user://saves/Save2.save"
 var dialog
 
 var ActionPhase
@@ -16,6 +16,7 @@ var finished = false
 var flag = false
 var ActFlag = false
 var dumbFlag = false
+var dumbFlag2 = false
 var Person_choice1 = 0
 var Person_choice2 = 0
 
@@ -44,11 +45,7 @@ func _ready():
 
 func _process(delta):
 	if EndScene:
-		var file = FileAccess.open(save_p_path, FileAccess.READ_WRITE)
-		file.store_float(load_data_Person(Person_choice1))
-		save_data(Person_choice2)
-		get_tree().change_scene_to_file('res://Scenes/Day1/Day1_Returned.tscn')
-		return
+		self
 
 func getDialog() -> Array:
 	var f = FileAccess.open(dialogPath, FileAccess.READ)
@@ -70,20 +67,24 @@ func nextPhrase(ActPhase):
 		ActionPhase = str(int(load_data_Person(Person_choice1)))
 	else:
 		ActionPhase = ActPhase
-	if phraseNum >= len(dialog) or dialog[phraseNum]["Action"] == "4":
+	if phraseNum >= len(dialog):
+		var file = FileAccess.open(save_p_path, FileAccess.READ_WRITE)
+		dumbFlag2 = true
 		$VBoxContainer5/Text.visible = false
 		$VBoxContainer2.visible = false
 		$VBoxContainer2.position = Vector2(3000, 2000)
 		Felice_sprite.visible = false
 		finished = false
-		$VBoxContainer2/Variant2.visible = false
 		var i = 1
 		while i > 0:
 			await get_tree().create_timer(0.01).timeout
 			$CanvasModulate.color = Color(i, i, i)
-			i-=0.005
-		await get_tree().create_timer(0.05).timeout
+			i-=0.01
 		EndScene = true
+		var Pch1 = load_data_Person(Person_choice1)
+		file.store_float(Pch1)
+		save_data(Person_choice2)
+		get_tree().change_scene_to_file('res://Scenes/Day1/Day1_Returned.tscn')
 		return
 	
 	finished = false
@@ -122,7 +123,7 @@ func nextPhrase(ActPhase):
 		$VBoxContainer4.visible = true
 		$VBoxContainer7.visible = true
 	
-	if dialog[phraseNum]["Action"] == ActionPhase or dialog[phraseNum]["Action"] == "0" or dialog[phraseNum]["Action"] == "5" or dialog[phraseNum]["Action"] == "3" or dialog[phraseNum]["Action"] == "6" or dialog[phraseNum]["Action"] == "10" or dialog[phraseNum]["Action"] == "11" or dialog[phraseNum]["Action"] == "9" or dialog[phraseNum]["Action"] == "12":
+	if dialog[phraseNum]["Action"] == ActionPhase or dialog[phraseNum]["Action"] == "0" or dialog[phraseNum]["Action"] == "5" or dialog[phraseNum]["Action"] == "3" or dialog[phraseNum]["Action"] == "6" or dialog[phraseNum]["Action"] == "10" or dialog[phraseNum]["Action"] == "11" or dialog[phraseNum]["Action"] == "9":
 		if ((dialog[phraseNum]["Name"] == "Юра") && (flag == false)):
 			n = 0.0
 			while n < 1:
@@ -168,30 +169,13 @@ func nextPhrase(ActPhase):
 				await get_tree().create_timer(0.02).timeout
 				Yuri_sprite.modulate = Color(1, 1, 1, n)
 				n-=0.2
-		if dialog[phraseNum]["Action"] == "12":
-			$VBoxContainer5/Text.visible = false
-			$VBoxContainer2.visible = false
-			$VBoxContainer2.position = Vector2(3000, 2000)
-			Felice_sprite.visible = false
-			finished = false
-			$VBoxContainer2/Variant2.visible = false
-			var i = 1
-			while i > 0:
-				await get_tree().create_timer(0.01).timeout
-				$CanvasModulate.color = Color(i, i, i)
-				i-=0.009
-			await get_tree().create_timer(0.05).timeout
-			var file = FileAccess.open(save_p_path, FileAccess.READ_WRITE)
-			file.store_float(load_data_Person(Person_choice1))
-			save_data(Person_choice2)
-			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_Returned.tscn')
 		if dialog[phraseNum]["Action"] == "11":
 			$AudioStreamPlayer2D.play()
 			$AudioStreamPlayer2D4.stop()
-			
-		while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):
-			$VBoxContainer5/Text.visible_characters += 1
-			await get_tree().create_timer(0.02).timeout
+		if dumbFlag2 == false:
+			while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):
+				$VBoxContainer5/Text.visible_characters += 1
+				await get_tree().create_timer(0.02).timeout
 	else:
 		finished = true
 		phraseNum += 1

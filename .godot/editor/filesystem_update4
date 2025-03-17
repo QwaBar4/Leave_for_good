@@ -15,3 +15,12 @@ res://Scenes/EndDemo.tscn
 res://Scenes/Load.tscn
 res://Scenes/ToBeContinued.tscn
 res://dialogues/Dialog_scene6.json
+res://Codes/DialogueBox_AfterPhylosophy.gd
+res://Codes/Day1_scene1.gd
+res://Codes/DialogueBox_InRoad.gd
+res://Codes/DialogueBox_WakeUp2.gd
+res://Codes/DialogueBox_DayDream.gd
+res://Codes/DialogueBox_InUniversity.gd
+res://Codes/DialogueBox_PhylosophyLesson.gd
+res://Codes/DialogueBox_Returned.gd
+res://Codes/DialogueBox_WakeUp.gd

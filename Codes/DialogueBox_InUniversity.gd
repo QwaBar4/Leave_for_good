@@ -4,7 +4,7 @@ extends TextureRect
 @export var TextSpeed = float(0.05)
 @onready var Yuri_sprite: TextureRect = $Yuri
 
-var save_p_path = "res://Saves/Save2.save"
+var save_p_path = "user://saves/Save2.save"
 var dialog
 var n;
 
