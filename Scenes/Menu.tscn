@@ -12,6 +12,8 @@ script/source = "extends Control
 var in_scene0 = 0
 var in_scene = 0
 var save_path = \"user://saves/save1.save\"
+var save_p_path = \"res://Saves/Save2.save\"
+var Person_choice = 0
 
 func load_data_scene0():
 	if FileAccess.file_exists(save_path):
@@ -22,9 +24,20 @@ func load_data_scene0():
 		print(\"No data\")
 		in_scene0 = 0
 		return in_scene0
-
+		
+func load_data_Person(Person_choice):
+	if FileAccess.file_exists(save_p_path):
+		var file = FileAccess.open(save_p_path, FileAccess.READ)
+		Person_choice = file.get_float()
+		return Person_choice
+	else:
+		print(\"No data\")
+		Person_choice = 0
+		return Person_choice
 
 func _ready():
+	if load_data_scene0() == 1:
+		$VBoxContainer5/Continue.disabled = true 
 	var i = 0
 	while i < 1:
 		await get_tree().create_timer(0.0001).timeout
