@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1jqkwwiqrt8b"]
+[gd_scene load_steps=17 format=3 uid="uid://c1jqkwwiqrt8b"]
 
 [ext_resource type="Script" uid="uid://csuu41cqs8vyd" path="res://Codes/Day1_WakeUp.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b4rnofetfa3h8" path="res://Assets/Bg-s/Scene1_apartment.png" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bxejqxtvyko2f" path="res://Assets/Music/Effects/Phone_call.mp3" id="7_8x23o"]
 [ext_resource type="Script" uid="uid://bhidn4x42858e" path="res://Codes/WakeUp_save.gd" id="8"]
 [ext_resource type="AudioStream" uid="uid://8qi7pt3eyknp" path="res://Assets/Music/Effects/door_closed.mp3" id="8_2axoq"]
+[ext_resource type="AudioStream" uid="uid://bgphs888ukr8q" path="res://Assets/Music/Effects/endedCall.mp3" id="9_7ehxt"]
 [ext_resource type="Shortcut" uid="uid://ffx53vby51kp" path="res://Codes/Buttons/MenuButtonLeave.tres" id="9_8x23o"]
 [ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="10"]
 [ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="11_7ehxt"]
@@ -149,73 +150,17 @@ volume_db = -35.905
 stream = ExtResource("7_8x23o")
 volume_db = -26.0
 
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-375.537, -663.802)
+scale = Vector2(0.206612, 0.206612)
+stream = ExtResource("9_7ehxt")
+volume_db = -37.762
+
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="DialogueBox"]
 position = Vector2(-258.182, -456.364)
 scale = Vector2(0.454545, 0.454545)
 stream = ExtResource("8_2axoq")
 volume_db = -22.17
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="DialogueBox"]
-visible = false
-custom_minimum_size = Vector2(14.015, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.536797
-anchor_top = -0.0672209
-anchor_right = 0.973964
-anchor_bottom = 0.239117
-offset_left = -4.36362
-offset_top = 19.5454
-offset_right = 147.762
-offset_bottom = 121.045
-scale = Vector2(0.3, 0.3)
-metadata/_edit_use_anchors_ = true
-
-[node name="Variant1" type="Button" parent="DialogueBox/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Да"
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="DialogueBox"]
-visible = false
-custom_minimum_size = Vector2(0.185, 0)
-layout_direction = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.828122
-anchor_top = 0.0704224
-anchor_right = 1.04273
-anchor_bottom = 0.934735
-offset_left = -44.5454
-offset_top = 2.57492e-05
-offset_right = 233.774
-offset_bottom = 22.2676
-scale = Vector2(0.3, 0.3)
-size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Variant11" type="Button" parent="DialogueBox/VBoxContainer4"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 100
-text = "Нет"
-
-[node name="Check_Yuri" type="Button" parent="DialogueBox"]
-visible = false
-layout_mode = 0
-offset_left = 607.0
-offset_top = 273.0
-offset_right = 625.0
-offset_bottom = 292.0
-
-[node name="Check_Alisa" type="Button" parent="DialogueBox"]
-visible = false
-layout_mode = 0
-offset_left = 562.727
-offset_top = 276.364
-offset_right = 584.727
-offset_bottom = 288.364
 
 [node name="check_end" type="Button" parent="DialogueBox"]
 visible = false
@@ -495,8 +440,6 @@ icon = ExtResource("10")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [connection signal="pressed" from="DialogueBox/VBoxContainer2/Variant2" to="DialogueBox" method="_on_variant_2_pressed"]
-[connection signal="pressed" from="DialogueBox/VBoxContainer3/Variant1" to="DialogueBox" method="_on_variant_1_pressed"]
-[connection signal="pressed" from="DialogueBox/VBoxContainer4/Variant11" to="DialogueBox" method="_on_variant_11_pressed"]
 [connection signal="pressed" from="ColorRect3/VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="ColorRect3/VBoxContainer2/New" to="ColorRect4/VBoxContainer" method="_on_new_pressed"]
 [connection signal="pressed" from="ColorRect3/VBoxContainer3/load" to="." method="_on_load_pressed"]

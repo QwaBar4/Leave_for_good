@@ -41,15 +41,39 @@ script = ExtResource("4")
 
 [node name="In_sc2" type="ColorRect" parent="DialogueBox"]
 layout_mode = 0
-offset_left = 325.0
-offset_top = -1092.27
-offset_right = 1041.0
-offset_bottom = -369.273
+offset_left = 317.273
+offset_top = 218.636
+offset_right = 1133.27
+offset_bottom = 1042.64
 rotation = 0.785398
 scale = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="DialogueBox/In_sc2"]
+
+[node name="In_sc3" type="ColorRect" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = -650.0
+offset_right = 843.0
+offset_bottom = -143.0
+rotation = 1.5708
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="DialogueBox/In_sc3"]
+
+[node name="In_sc4" type="ColorRect" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 1345.0
+offset_top = -650.0
+offset_right = 1848.0
+offset_bottom = -143.0
+rotation = 1.5708
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="DialogueBox/In_sc4"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox"]
 layout_mode = 0
@@ -116,7 +140,7 @@ anchor_left = -0.751346
 anchor_top = -4.52023
 anchor_right = 1.71779
 anchor_bottom = 2.52203
-offset_right = 70.9999
+offset_right = 70.9998
 offset_bottom = 31.0
 size_flags_vertical = 3
 

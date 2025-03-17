@@ -26,7 +26,7 @@ func _ready():
 
 func save_data(Person_choice1):
 	var file = FileAccess.open(save_p_path, FileAccess.WRITE)
-	file.store_var(Person_choice1)
+	file.store_float(Person_choice1)
 	
 func _process(delta):
 	await get_tree().create_timer(0.7).timeout
@@ -277,7 +277,7 @@ func _on_variant_3_pressed():
 	$VBoxContainer7.modulate = Color(1, 1, 1, 0)
 	$VBoxContainer7.size = Vector2(4000,2500)
 	$VBoxContainer7.position = Vector2(-330, -500)
-	
+	Person_choice1 = 0
 	var ActionPhase = "6"
 	$VBoxContainer2.visible = true
 	if finished:

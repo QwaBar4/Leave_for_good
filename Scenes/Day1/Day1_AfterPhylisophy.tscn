@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bu4s3rcevh7c5"]
+[gd_scene load_steps=18 format=3 uid="uid://bu4s3rcevh7c5"]
 
 [ext_resource type="Script" uid="uid://fq87lx2ulagd" path="res://Codes/Day1_AfterPhylisophy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://pwxaal3fdvel" path="res://Assets/Bg-s/Bg_in_Road.jpg" id="2"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="11"]
 [ext_resource type="Shortcut" uid="uid://cyi44313ku3ww" path="res://Codes/Buttons/MenuButtonEnter.tres" id="11_27n5o"]
 [ext_resource type="AudioStream" uid="uid://dbabtec1ohipr" path="res://Assets/Music/Effects/bus_sounds.mp3" id="11_q5qr1"]
+[ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="14_7hwpp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47j0m"]
 
@@ -47,15 +48,28 @@ script = ExtResource("4")
 [node name="In_sc2" type="ColorRect" parent="DialogueBox"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 333.182
-offset_top = -1076.36
-offset_right = 1049.18
-offset_bottom = -353.363
-rotation = 0.785398
+offset_left = 340.0
+offset_top = -650.0
+offset_right = 843.0
+offset_bottom = -143.0
+rotation = 1.5708
 scale = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="DialogueBox/In_sc2"]
+
+[node name="In_sc3" type="ColorRect" parent="DialogueBox"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 1345.0
+offset_top = -650.0
+offset_right = 1848.0
+offset_bottom = -143.0
+rotation = 1.5708
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="DialogueBox/In_sc3"]
 
 [node name="Yuri" type="TextureRect" parent="DialogueBox"]
 modulate = Color(1, 1, 1, 0)
@@ -473,6 +487,7 @@ text = "Удалить"
 [node name="buttons" type="AudioStreamPlayer2D" parent="ColorRect4/VBoxContainer/HBoxContainer"]
 position = Vector2(-6400, -1948)
 scale = Vector2(2, 2)
+stream = ExtResource("14_7hwpp")
 volume_db = -17.0
 
 [node name="PhraseNum2" type="RichTextLabel" parent="ColorRect4/VBoxContainer"]

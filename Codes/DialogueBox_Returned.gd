@@ -11,28 +11,39 @@ var phraseNum = 0
 var finished = false
 var Person_choice1 = 0
 var Person_choice2 = 0
-var choice1
-var choice2
+var choice1 = 0
+var choice2 = 0.0
 
 func _ready():
-	print(load_data_Person(Person_choice2))
-	choice1 = str(load_data_Person(Person_choice1))
-	choice2 = str(load_data_Person(Person_choice2))
+	choice1 = str(int(load_data_Person1(Person_choice1)))
+	choice2 = str(int(load_data_Person2(Person_choice2)))
+	print(choice1)
+	print(choice2)
 	$Timer.wait_time = TextSpeed
 	dialog = getDialog()
 	assert(dialog, "Dialog not НАЙДЕН ФААААК")
 	var ActionPhase = "0"
 	nextPhrase(ActionPhase)
 
-func load_data_Person(Person_choice1):
+func load_data_Person1(Person_choice):
 	if FileAccess.file_exists(save_p_path):
 		var file = FileAccess.open(save_p_path, FileAccess.READ)
-		Person_choice1 = file.get_var(Person_choice1)
+		Person_choice1 = file.get_float()
 		return Person_choice1
 	else:
 		print("No data")
 		Person_choice1 = 0
 		return Person_choice1
+		
+func load_data_Person2(Person_choice2):
+	if FileAccess.file_exists(save_p_path):
+		var file = FileAccess.open(save_p_path, FileAccess.READ)
+		Person_choice2 = file.get_double()
+		return Person_choice2
+	else:
+		print("No data")
+		Person_choice2 = 0
+		return Person_choice2
 
 
 func _process(delta):

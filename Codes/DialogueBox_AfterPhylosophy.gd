@@ -19,31 +19,33 @@ var dumbFlag = false
 var Person_choice1 = 0
 var Person_choice2 = 0
 
+
 func load_data_Person(Person_choice):
 	if FileAccess.file_exists(save_p_path):
 		var file = FileAccess.open(save_p_path, FileAccess.READ)
-		Person_choice = file.get_var(Person_choice)
+		Person_choice = file.get_float()
 		return Person_choice
 	else:
 		print("No data")
-		Person_choice1 = 0
+		Person_choice = 0
 		return Person_choice
 
 func save_data(Person_choice2):
 	var file = FileAccess.open(save_p_path, FileAccess.WRITE)
-	file.store_var(Person_choice2)
+	file.store_double(Person_choice2)
 
 func _ready():
-	print(load_data_Person(Person_choice1))
+	print("PersonCh1 = ", load_data_Person(Person_choice1))
 	$Timer.wait_time = TextSpeed
 	dialog = getDialog()
-	assert(dialog, "Dialog not НАЙДЕН ФААААК")
-	ActionPhase = str(load_data_Person(Person_choice1))
+	ActionPhase = str(int(load_data_Person(Person_choice1)))
 	nextPhrase(ActionPhase)
 
 
 func _process(delta):
 	if EndScene:
+		var file = FileAccess.open(save_p_path, FileAccess.READ_WRITE)
+		file.store_float(load_data_Person(Person_choice1))
 		save_data(Person_choice2)
 		get_tree().change_scene_to_file('res://Scenes/Day1/Day1_Returned.tscn')
 		return
@@ -65,7 +67,7 @@ func getDialog() -> Array:
 
 func nextPhrase(ActPhase):
 	if ActFlag == false:
-		ActionPhase = str(load_data_Person(Person_choice2))
+		ActionPhase = str(int(load_data_Person(Person_choice1)))
 	else:
 		ActionPhase = ActPhase
 	if phraseNum >= len(dialog) or dialog[phraseNum]["Action"] == "4":
@@ -92,10 +94,16 @@ func nextPhrase(ActPhase):
 	
 	$VBoxContainer5/Text.visible_characters = 0
 	if dialog[phraseNum]["Action"] == "9":
+		$VBoxContainer2.visible = false
+		$AudioStreamPlayer2D3.play()
 		$AudioStreamPlayer2D.stop()
-		for i in range(-1200, 300, 30):
-			$In_sc2.position = Vector2(330, i)
-			await get_tree().create_timer(0.005).timeout
+		var i = 0;
+		while(i < 800):
+			$In_sc2.position = Vector2(340 - i, -650.0)
+			$In_sc3.position = Vector2(1345.0 + i, -650.0)
+			await get_tree().create_timer(0.000000000005).timeout
+			i += 30
+		$VBoxContainer2.visible = true
 	if dialog[phraseNum]["Action"] == "5":
 		$AudioStreamPlayer2D.stop()
 	elif dialog[phraseNum]["Text"] == "Отзвенел звонок" && dumbFlag == true:
@@ -109,14 +117,11 @@ func nextPhrase(ActPhase):
 			await get_tree().create_timer(0.09).timeout
 			n-=5
 		$AudioStreamPlayer2D.stop()
-	elif dialog[phraseNum]["Action"] == "9":
-		$AudioStreamPlayer2D3.play()
 	elif dialog[phraseNum]["Action"] == "3":
 		$VBoxContainer2.visible = false
 		$VBoxContainer4.visible = true
 		$VBoxContainer7.visible = true
 	
-	print(ActionPhase)
 	if dialog[phraseNum]["Action"] == ActionPhase or dialog[phraseNum]["Action"] == "0" or dialog[phraseNum]["Action"] == "5" or dialog[phraseNum]["Action"] == "3" or dialog[phraseNum]["Action"] == "6" or dialog[phraseNum]["Action"] == "10" or dialog[phraseNum]["Action"] == "9":
 		if ((dialog[phraseNum]["Name"] == "Юра") && (flag == false)):
 			n = 0.0
@@ -162,6 +167,9 @@ func nextPhrase(ActPhase):
 				await get_tree().create_timer(0.02).timeout
 				Yuri_sprite.modulate = Color(1, 1, 1, n)
 				n-=0.2
+		if dialog[phraseNum]["Text"] == "Успешно отсидев лекцию Иннокентия, без каких-либо происшествий, я отправился к гардеробу за курткой ":
+			$AudioStreamPlayer2D.play()
+			$AudioStreamPlayer2D4.stop()
 		while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):
 			$VBoxContainer5/Text.visible_characters += 1
 			await get_tree().create_timer(0.02).timeout
@@ -226,6 +234,7 @@ func _on_variant_3_pressed():
 		Felice_sprite.modulate = Color(0.7, 0.7, 0.7, n)
 		n-=0.2
 	Felice_sprite.modulate = Color(0, 0, 0, 0)
+	Felice_sprite.visible = false
 	if finished:
 		nextPhrase(ActionPhase)
 	elif !finished:

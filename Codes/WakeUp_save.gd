@@ -148,6 +148,8 @@ func _on_load_pressed() -> void:
 			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_Returned.tscn')
 		8:
 			get_tree().change_scene_to_file('res://Scenes/Day1/Day1_DayDream.tscn')
+		9:
+			get_tree().change_scene_to_file('res://Scenes/Day2/Day2_WakeUp.tscn')
 
 
 func get_text() -> String:

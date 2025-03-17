@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0giplsa2cd2y"]
+[gd_scene load_steps=16 format=3 uid="uid://c0giplsa2cd2y"]
 
 [ext_resource type="Script" uid="uid://c46eevt6fm81w" path="res://Codes/Day1_DayDream.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://sak4jaf7453l" path="res://Assets/Bg-s/DayDreamBg.jpg" id="2"]
@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://cj6ir8uqt5qw1" path="res://Assets/Music/Effects/glitch2.mp3" id="5_7h58i"]
 [ext_resource type="AudioStream" uid="uid://5yd0t8aaayyf" path="res://Assets/Music/Effects/glitch1.mp3" id="6_8oh7c"]
 [ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="7"]
+[ext_resource type="AudioStream" uid="uid://ca3qoikrh1ysi" path="res://Assets/Music/Effects/silenceTalkShort.mp3" id="7_ji8at"]
 [ext_resource type="Script" uid="uid://cej4gnwcutkrb" path="res://Codes/Saves_DayDream.gd" id="8"]
 [ext_resource type="Shortcut" uid="uid://ffx53vby51kp" path="res://Codes/Buttons/MenuButtonLeave.tres" id="8_7h58i"]
+[ext_resource type="AudioStream" uid="uid://c6wmjq0wl4xex" path="res://Assets/Music/Effects/silenceTalkMiddle.mp3" id="8_itpkw"]
 [ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="10"]
 [ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="10_7h58i"]
 [ext_resource type="Shortcut" uid="uid://cyi44313ku3ww" path="res://Codes/Buttons/MenuButtonEnter.tres" id="11_8oh7c"]
@@ -48,6 +50,18 @@ position = Vector2(-258.182, -456.364)
 scale = Vector2(0.454545, 0.454545)
 stream = ExtResource("6_8oh7c")
 volume_db = -20.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+stream = ExtResource("7_ji8at")
+volume_db = -22.874
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+stream = ExtResource("8_itpkw")
+volume_db = -22.255
 
 [node name="CanvasModulate" type="CanvasModulate" parent="DialogueBox"]
 position = Vector2(-258.182, -456.364)

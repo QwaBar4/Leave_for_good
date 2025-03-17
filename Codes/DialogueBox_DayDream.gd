@@ -11,24 +11,13 @@ var phraseNum = 0
 var finished = false
 var Person_choice1 = 0
 
-func load_data_Person(Person_choice1):
-	if FileAccess.file_exists(save_p_path):
-		var file = FileAccess.open(save_p_path, FileAccess.READ)
-		Person_choice1 = file.get_var(Person_choice1)
-		return Person_choice1
-	else:
-		print("No data")
-		Person_choice1 = 0
-		return Person_choice1
 
 func _ready():
 	$AudioStreamPlayer2D.play()
-	print(load_data_Person(Person_choice1))
 	$Timer.wait_time = TextSpeed
 	dialog = getDialog()
 	assert(dialog, "Dialog not НАЙДЕН ФААААК")
-	var ActionPhase = str(load_data_Person(Person_choice1))
-	nextPhrase(ActionPhase)
+	nextPhrase("0")
 
 
 func _process(delta):
@@ -53,7 +42,7 @@ func getDialog() -> Array:
 
 func nextPhrase(ActionPhase):
 	var flag = false
-	ActionPhase = str(load_data_Person(Person_choice1))
+	ActionPhase = "0"
 
 	
 	finished = false
@@ -63,13 +52,20 @@ func nextPhrase(ActionPhase):
 	
 	$VBoxContainer5/Text.visible_characters = 0
 	
-	if dialog[phraseNum]["Action"] == "0":
+	if dialog[phraseNum]["Action"] == "2":
+		$AudioStreamPlayer2D3.play()
+	if dialog[phraseNum]["Action"] == "3":
+		$AudioStreamPlayer2D4.play()
+	
+	
+	if dialog[phraseNum]["Action"] == "0" or dialog[phraseNum]["Action"] == "2" or dialog[phraseNum]["Action"] == "3":
 		while ($VBoxContainer5/Text.visible_characters < len($VBoxContainer5/Text.text)):
 			$VBoxContainer5/Text.visible_characters += 1
 			await get_tree().create_timer(0.02).timeout
 	elif dialog[phraseNum]["Action"] == "1":
 		finished = false
 		var i = 1
+		$VBoxContainer2.visible = false
 		while i > 0.5:
 			await get_tree().create_timer(0.01).timeout
 			$CanvasModulate.color = Color(i, i, i)
@@ -88,6 +84,7 @@ func nextPhrase(ActionPhase):
 		$VBoxContainer.visible = false
 		EndScene = true
 		return
+		
 	else:
 		finished = true
 		phraseNum += 1

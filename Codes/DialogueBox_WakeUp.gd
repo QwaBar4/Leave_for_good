@@ -95,6 +95,7 @@ func nextPhrase(ActionPhase):
 	
 	if (dialog[phraseNum]["Action"] == "0") or (dialog[phraseNum]["Action"] == "1") or (dialog[phraseNum]["Action"] == "2") or (dialog[phraseNum]["Action"] == "3"):
 		if dialog[phraseNum]["Action"] == "2":
+			$AudioStreamPlayer2D6.play()
 			await get_tree().create_timer(0.002).timeout
 			Yuri_sprite.self_modulate = Color.hex(0xffffff28)
 			await get_tree().create_timer(0.002).timeout

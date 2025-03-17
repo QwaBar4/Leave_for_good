@@ -1,0 +1,450 @@
+[gd_scene load_steps=18 format=3 uid="uid://b7ev0te15ikkr"]
+
+[ext_resource type="Script" uid="uid://dxj84puhbtk18" path="res://Codes/day_2_wake_up.gd" id="1_6tkh7"]
+[ext_resource type="Texture2D" uid="uid://b4rnofetfa3h8" path="res://Assets/Bg-s/Scene1_apartment.png" id="2_jfg53"]
+[ext_resource type="Texture2D" uid="uid://csuidiadogpwi" path="res://Assets/Bg-s/Dialogue_bg.png" id="3_rvh0b"]
+[ext_resource type="Script" uid="uid://cn22o4qjxftvb" path="res://Codes/DialogueBox_WakeUp2.gd" id="4_rldme"]
+[ext_resource type="Texture2D" uid="uid://cquvyv7gstp76" path="res://Assets/Personages/Yuri_standing.png" id="5_0rg3s"]
+[ext_resource type="AudioStream" uid="uid://d220j15fbiyei" path="res://Assets/Music/Effects/signal-elektronnogo-budilnika-33304.mp3" id="6_rldme"]
+[ext_resource type="FontFile" uid="uid://nd838uhky2oy" path="res://Assets/Comic Sans MS.ttf" id="6_uplus"]
+[ext_resource type="AudioStream" uid="uid://c2fgrespr3s8i" path="res://Assets/Music/Effects/standFromTheShelf.mp3" id="7_p64sw"]
+[ext_resource type="AudioStream" uid="uid://bxejqxtvyko2f" path="res://Assets/Music/Effects/Phone_call.mp3" id="8_1306r"]
+[ext_resource type="AudioStream" uid="uid://8qi7pt3eyknp" path="res://Assets/Music/Effects/door_closed.mp3" id="9_du3hb"]
+[ext_resource type="Shortcut" uid="uid://ffx53vby51kp" path="res://Codes/Buttons/MenuButtonLeave.tres" id="10_bnfy1"]
+[ext_resource type="Script" uid="uid://bbvm7xuxdh6c6" path="res://Codes/day2_wake_up_save.gd" id="11_72qcb"]
+[ext_resource type="AudioStream" uid="uid://bgphs888ukr8q" path="res://Assets/Music/Effects/endedCall.mp3" id="11_an57k"]
+[ext_resource type="AudioStream" uid="uid://u8iarqk42lrp" path="res://Assets/Music/Effects/button_music_ultra_short_speedx1.5.mp3" id="12_bbomy"]
+[ext_resource type="Shortcut" uid="uid://cyi44313ku3ww" path="res://Codes/Buttons/MenuButtonEnter.tres" id="13_4x38i"]
+[ext_resource type="Texture2D" uid="uid://chc4in3ahdfyg" path="res://Assets/Bg-s/bg_menu_mini.png" id="14_t1ioa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yxkw"]
+
+[node name="Day1WakeUp" type="Node2D"]
+script = ExtResource("1_6tkh7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -22.0
+offset_top = -161.0
+offset_right = 2578.0
+offset_bottom = 1759.0
+texture = ExtResource("2_jfg53")
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+offset_left = 568.0
+offset_top = 1004.0
+offset_right = 1230.0
+offset_bottom = 1179.0
+scale = Vector2(2.2, 2.2)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("3_rvh0b")
+expand_mode = 1
+script = ExtResource("4_rldme")
+
+[node name="Yuri" type="TextureRect" parent="DialogueBox"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 140.0
+offset_top = -420.0
+offset_right = 523.0
+offset_bottom = 73.0
+texture = ExtResource("5_0rg3s")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 13.1818
+offset_top = 13.6364
+offset_right = 579.182
+offset_bottom = 203.636
+scale = Vector2(0.26, 0.26)
+
+[node name="Name" type="RichTextLabel" parent="DialogueBox/VBoxContainer"]
+texture_filter = 6
+texture_repeat = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("6_uplus")
+theme_override_fonts/mono_font = ExtResource("6_uplus")
+theme_override_fonts/italics_font = ExtResource("6_uplus")
+theme_override_fonts/bold_italics_font = ExtResource("6_uplus")
+theme_override_fonts/bold_font = ExtResource("6_uplus")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "Текст"
+tab_size = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 53.0
+offset_right = 3157.0
+offset_bottom = 527.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Text" type="RichTextLabel" parent="DialogueBox/VBoxContainer5"]
+custom_minimum_size = Vector2(-1.37, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/text_highlight_h_padding = 6
+theme_override_fonts/normal_font = ExtResource("6_uplus")
+theme_override_font_sizes/normal_font_size = 100
+text = "Это крутой текст"
+tab_size = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="DialogueBox"]
+
+[node name="Action" type="RichTextLabel" parent="DialogueBox"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.669621
+anchor_top = 0.254793
+anchor_right = 0.985317
+anchor_bottom = 1.41677
+theme_override_font_sizes/normal_font_size = 86
+text = "aa"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DialogueBox"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.751346
+anchor_top = -4.52023
+anchor_right = 1.71779
+anchor_bottom = 2.52203
+offset_right = 70.9999
+offset_bottom = 31.0
+size_flags_vertical = 3
+
+[node name="Variant2" type="Button" parent="DialogueBox/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+text = "Выбор1"
+
+[node name="Timer2" type="Timer" parent="DialogueBox"]
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="DialogueBox"]
+stream = ExtResource("7_p64sw")
+volume_db = -15.476
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DialogueBox"]
+stream = ExtResource("6_rldme")
+volume_db = -37.762
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="DialogueBox"]
+stream = ExtResource("8_1306r")
+volume_db = -26.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+stream = ExtResource("9_du3hb")
+volume_db = -22.17
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="DialogueBox"]
+position = Vector2(-258.182, -456.364)
+scale = Vector2(0.454545, 0.454545)
+stream = ExtResource("11_an57k")
+volume_db = -37.762
+
+[node name="In_sc2" type="ColorRect" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 222.0
+offset_right = 981.0
+offset_bottom = 945.0
+rotation = 0.785398
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="DialogueBox/In_sc2"]
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = -1597.0
+offset_right = 2571.0
+offset_bottom = -15.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect3"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 300.0
+offset_right = 1808.0
+offset_bottom = 490.0
+scale = Vector2(0.6, 0.6)
+
+[node name="continue" type="Button" parent="ColorRect3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 130
+shortcut = ExtResource("10_bnfy1")
+text = "Продолжить"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 450.0
+offset_right = 2028.0
+offset_bottom = 668.0
+scale = Vector2(0.6, 0.6)
+
+[node name="New" type="Button" parent="ColorRect3/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 150
+text = "Сохранить игру"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 620.0
+offset_right = 2028.0
+offset_bottom = 838.0
+scale = Vector2(0.6, 0.6)
+
+[node name="load" type="Button" parent="ColorRect3/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 150
+text = "Загрузить игру"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 2
+offset_left = 1000.0
+offset_top = 800.0
+offset_right = 1783.0
+offset_bottom = 1018.0
+scale = Vector2(0.6, 0.6)
+
+[node name="options" type="Button" parent="ColorRect3/VBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 150
+text = "Настройки"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ColorRect3"]
+layout_mode = 2
+offset_left = 1000.0
+offset_top = 1000.0
+offset_right = 1763.0
+offset_bottom = 1218.0
+scale = Vector2(0.6, 0.6)
+
+[node name="exit" type="Button" parent="ColorRect3/VBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 150
+text = "Выход"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -3020.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 1442.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect2"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 2200.0
+offset_top = 250.0
+offset_right = 2458.0
+offset_bottom = 403.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Sound" type="Button" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 100
+text = "Вкл"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 220.0
+offset_right = 655.0
+offset_bottom = 467.0
+scale = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("6_uplus")
+theme_override_font_sizes/normal_font_size = 140
+text = "Звук"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 1000.0
+offset_right = 1390.0
+offset_bottom = 1149.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Sound2" type="Button" parent="ColorRect2/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 100
+text = "Назад"
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 2600.0
+offset_top = -3.0
+offset_right = 5618.0
+offset_bottom = 1442.0
+color = Color(0.12549, 0.12549, 0.12549, 0.901961)
+
+[node name="Timer1" type="Timer" parent="ColorRect4"]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 60.0
+offset_right = 1824.0
+offset_bottom = 307.0
+scale = Vector2(0.9, 0.9)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect4/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("6_uplus")
+theme_override_font_sizes/normal_font_size = 140
+text = "Загрузить игру"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 1115.0
+offset_top = 1100.0
+offset_right = 1405.0
+offset_bottom = 1249.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Exit2" type="Button" parent="ColorRect4/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 100
+text = "Назад"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 263.0
+offset_right = 1890.0
+offset_bottom = 922.0
+size_flags_vertical = 3
+
+[node name="SaveContainer" type="VBoxContainer" parent="ColorRect4/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 977.0
+offset_right = 3200.0
+offset_bottom = 1113.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("11_72qcb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect4/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Сохранить"
+
+[node name="Load" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Загрузить"
+
+[node name="Delete" type="Button" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_uplus")
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "Удалить"
+
+[node name="buttons" type="AudioStreamPlayer2D" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+position = Vector2(-6400, -1948)
+scale = Vector2(2, 2)
+stream = ExtResource("12_bbomy")
+volume_db = -17.0
+
+[node name="PhraseNum2" type="RichTextLabel" parent="ColorRect4/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 1.59998
+offset_right = 68.0
+offset_bottom = 62.6
+scale = Vector2(2, 2)
+size_flags_vertical = 3
+
+[node name="Menu_button" type="Button" parent="VBoxContainer3"]
+modulate = Color(1, 1, 1, 0.560784)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7yxkw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7yxkw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7yxkw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7yxkw")
+shortcut = ExtResource("13_4x38i")
+icon = ExtResource("14_t1ioa")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[connection signal="pressed" from="DialogueBox/VBoxContainer2/Variant2" to="DialogueBox" method="_on_variant_2_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer2/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer3/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer4/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ColorRect3/VBoxContainer5/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer3/Sound2" to="." method="_on_sound_2_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer3/Exit2" to="." method="_on_exit_2_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Save" to="ColorRect4/VBoxContainer" method="_on_save_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Load" to="ColorRect4/VBoxContainer" method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Delete" to="ColorRect4/VBoxContainer" method="_on_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Menu_button" to="." method="_on_menu_button_pressed"]

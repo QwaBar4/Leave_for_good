@@ -6,6 +6,7 @@ extends TextureRect
 var save_p_path = "res://Saves/Save2.save"
 var dialog
 var n
+var m
 var EndScene = false
 var phraseNum = 0
 var finished = false
@@ -66,22 +67,26 @@ func nextPhrase(ActionPhase):
 	$VBoxContainer5/Text.visible_characters = 0
 	if dialog[phraseNum]["Action"] == "1":
 		$VBoxContainer2.visible = false
-		for i in range(-1200, 300, 30):
-			$In_sc2.position = Vector2(330, i)
-			await get_tree().create_timer(0.005).timeout
+		var i = 0;
+		while(i < 800):
+			$In_sc3.position = Vector2(340 - i, -650.0)
+			$In_sc4.position = Vector2(1345.0 + i, -650.0)
+			await get_tree().create_timer(0.000000000005).timeout
+			i += 15
 		$VBoxContainer2.visible = true
 		$AudioStreamPlayer2D3.stop()
 	elif dialog[phraseNum]["Action"] == "2":
 		$VBoxContainer2.visible = false
-		for i in range(200, -1200, -30):
-			$In_sc2.position = Vector2(330, i)
-			await get_tree().create_timer(0.005).timeout
-		$VBoxContainer2.visible = true
-		n = -40
-		while n > -49:
+		n = -20
+		m = 200
+		while m > -1200:
 			$AudioStreamPlayer2D.volume_db = n
-			await get_tree().create_timer(1).timeout
-			n -= 3
+			$In_sc2.position = Vector2(330, m)
+			await get_tree().create_timer(0.005).timeout
+			m -= 30
+			if(n > -29):
+				n -= 0.9
+		$VBoxContainer2.visible = true
 	if dialog[phraseNum]["Action"] == ActionPhase or dialog[phraseNum]["Action"] == "1" or dialog[phraseNum]["Action"] == "2" or dialog[phraseNum]["Action"] == "3":
 		if dialog[phraseNum]["Action"] == "3": 
 			$VBoxContainer2.visible = false
