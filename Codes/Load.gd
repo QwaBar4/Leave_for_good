@@ -71,7 +71,7 @@ func make_save_button(text: String) -> void:
 func _on_delete_pressed() -> void:
 	await get_tree().create_timer(0.00000000005).timeout
 	var i := save_group.get_pressed_button().get_index()
-	if(not(i)):
+	if(not(i) or i == null):
 		load_button.disabled = true
 		delete_button.disabled = true
 		await get_tree().create_timer(0.3).timeout

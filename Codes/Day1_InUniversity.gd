@@ -81,4 +81,10 @@ func _on_exit_2_pressed():
 		await get_tree().create_timer(0.000000000005).timeout
 
 
-
+func _on_sound_pressed() -> void:
+	$ColorRect4/VBoxContainer/HBoxContainer/buttons.play()
+	if AudioServer.is_bus_mute(0) == false:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)
+		$ColorRect4/VBoxContainer/HBoxContainer/buttons.play()

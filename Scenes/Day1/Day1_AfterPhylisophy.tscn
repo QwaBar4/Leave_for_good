@@ -88,10 +88,10 @@ modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 clip_children = 2
 layout_mode = 0
-offset_left = 92.7273
-offset_top = -371.818
-offset_right = 544.727
-offset_bottom = 69.1818
+offset_left = 93.0
+offset_top = -370.0
+offset_right = 545.0
+offset_bottom = 70.9998
 texture = ExtResource("6_fdr6d")
 expand_mode = 1
 
@@ -349,9 +349,9 @@ color = Color(0.12549, 0.12549, 0.12549, 0.901961)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
 layout_mode = 0
-offset_left = 2200.0
+offset_left = 2000.0
 offset_top = 250.0
-offset_right = 2458.0
+offset_right = 2479.0
 offset_bottom = 403.0
 scale = Vector2(0.8, 0.8)
 
@@ -360,7 +360,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5")
 theme_override_font_sizes/font_size = 100
-text = "Вкл"
+text = "Вкл/выкл"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2"]
 layout_mode = 0
@@ -521,6 +521,7 @@ icon = ExtResource("11")
 [connection signal="pressed" from="ColorRect3/VBoxContainer3/load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="ColorRect3/VBoxContainer4/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="ColorRect3/VBoxContainer5/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Sound" to="." method="_on_sound_pressed"]
 [connection signal="pressed" from="ColorRect2/VBoxContainer3/Sound2" to="." method="_on_sound_2_pressed"]
 [connection signal="pressed" from="ColorRect4/VBoxContainer3/Exit2" to="." method="_on_exit_2_pressed"]
 [connection signal="pressed" from="ColorRect4/VBoxContainer/HBoxContainer/Save" to="ColorRect4/VBoxContainer" method="_on_save_pressed"]

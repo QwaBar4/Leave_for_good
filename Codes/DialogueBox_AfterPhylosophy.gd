@@ -107,10 +107,10 @@ func nextPhrase(ActPhase):
 		$VBoxContainer2.visible = true
 	if dialog[phraseNum]["Action"] == "5":
 		$AudioStreamPlayer2D.stop()
-	elif dialog[phraseNum]["Text"] == "Отзвенел звонок" && dumbFlag == true:
+	elif dialog[phraseNum]["Text"] == "Прозвенел звонок, вспомнив, что за предмет меня сейчас ждал, я рванул на пару, даже толком не успев попрощатсья" && dumbFlag == true:
 		$AudioStreamPlayer2D2.play()
 		await get_tree().create_timer(0.05).timeout
-	elif dialog[phraseNum]["Text"] == "Надо бежать, рад был пообщаться, Фелиция" && dumbFlag == true:
+	elif dialog[phraseNum]["Text"] == "Надо бежать, рад был пообщаться, Фели.." && dumbFlag == true:
 		await get_tree().create_timer(0.05).timeout
 		n = -30
 		while(n > -60):
@@ -138,9 +138,19 @@ func nextPhrase(ActPhase):
 				Yuri_sprite.position = Vector2(140, n)
 				n -= 2
 			while(n <= -420):
-				await get_tree().create_timer(0.004).timeout
+				await get_tree().create_timer(0.0004).timeout
 				Yuri_sprite.position = Vector2(140, n)
 				n += 2
+		if ((dialog[phraseNum]["Name"] == "???") or (dialog[phraseNum]["Name"] == "Фелиция")):
+			var n = -370
+			while(n >= -375):
+				await get_tree().create_timer(0.0004).timeout
+				Felice_sprite.position = Vector2(93, n)
+				n -= 1
+			while(n <= -370):
+				await get_tree().create_timer(0.004).timeout
+				Felice_sprite.position = Vector2(93, n)
+				n += 1
 		if dialog[phraseNum]["Action"] == "5":
 			n = 1
 			while n >= 0:

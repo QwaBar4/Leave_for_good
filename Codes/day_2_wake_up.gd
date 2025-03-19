@@ -83,3 +83,12 @@ func _on_exit_2_pressed():
 
 func _on_new_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_sound_pressed() -> void:
+	$ColorRect4/VBoxContainer/HBoxContainer/buttons.play()
+	if AudioServer.is_bus_mute(0) == false:
+		AudioServer.set_bus_mute(0, true)
+	else:
+		AudioServer.set_bus_mute(0, false)
+		$ColorRect4/VBoxContainer/HBoxContainer/buttons.play()
