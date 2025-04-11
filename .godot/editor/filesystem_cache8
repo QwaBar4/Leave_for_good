@@ -1,0 +1,133 @@
+fc8a56933c4b1c8d796fdb8f7a9f9475
+::res://::1738219672
+gdre_export.log::TextFile::-1::1738219536::0::1::::<><>::
+Icon.png::CompressedTexture2D::6262897917902222817::1738219535::1738219675::1::::<><>::
+icon.svg::CompressedTexture2D::6368259496700214440::1738219534::1738219675::1::::<><>::
+Icon_photo-resizer.ru.png::CompressedTexture2D::3166708639853736255::1738219535::1738219675::1::::<><>::
+::res://Assets/::1738219646
+Bg_dialogue1.ogv::VideoStreamTheora::-1::1738219534::0::1::::<><>::
+Comic Sans MS.ttf::FontFile::920703528046260128::1738219535::1738219675::1::::<><>::
+In_fade_scene_1.ogv::VideoStreamTheora::-1::1738219534::0::1::::<><>::
+Out_fade_scene1.ogv::VideoStreamTheora::-1::1738219534::0::1::::<><>::
+::res://Assets/Bg-s/::1738219646
+Bg_in_Road.jpg::CompressedTexture2D::1099645474265293967::1738219535::1738219676::1::::<><>::
+bg_menu_mini.png::CompressedTexture2D::5270067833569569362::1738219534::1738219675::1::::<><>::
+DayDreamBg.jpg::CompressedTexture2D::1264058616416756163::1738219535::1738219676::1::::<><>::
+Dialogue_bg.png::CompressedTexture2D::6078019621617896992::1738219535::1738219675::1::::<><>::
+Dialojie.png::CompressedTexture2D::1579856032014066584::1738219535::1738219675::1::::<><>::
+Dream_bg1.jpg::CompressedTexture2D::1124094141101260064::1738219535::1738219677::1::::<><>::
+in_cabinet.jpg::CompressedTexture2D::469891112810117453::1738219535::1738219676::1::::<><>::
+In_university_bg.jpg::CompressedTexture2D::6638058002863244654::1738219535::1738219676::1::::<><>::
+menu_bg_button.png::CompressedTexture2D::503539250256891936::1738219535::1738219675::1::::<><>::
+Plylosophy_Cabinet_bg.jpg::CompressedTexture2D::856341835251185484::1738219535::1738219676::1::::<><>::
+Scene1_apartment.png::CompressedTexture2D::4457806162701644719::1738219535::1738219676::1::::<><>::
+Univer_bg1.jpg::CompressedTexture2D::7081060103421998825::1738219535::1738219677::1::::<><>::
+You-are-an-idiot.ogv::VideoStreamTheora::-1::1738219534::0::1::::<><>::
+::res://Assets/Menu/::1738219646
+bg_dark.png::CompressedTexture2D::4293690765412164584::1738219535::1738219676::1::::<><>::
+Bg_dark_mini.png::CompressedTexture2D::444833005995284927::1738219535::1738219676::1::::<><>::
+Bg_Settings.png::CompressedTexture2D::3322229059073280635::1738219535::1738219676::1::::<><>::
+eye_blind.png::CompressedTexture2D::3603299550725018095::1738219535::1738219676::1::::<><>::
+X.png::CompressedTexture2D::5560225646350755147::1738219535::1738219676::1::::<><>::
+::res://Assets/music/::1738219646
+bus_sounds.mp3::AudioStreamMP3::7229545756177619079::1738219535::1738219675::1::::<><>::
+button_music.mp3::AudioStreamMP3::2926694823729105504::1738219535::1738219675::1::::<><>::
+button_music_short.mp3::AudioStreamMP3::6987564021609562113::1738219535::1738219675::1::::<><>::
+button_music_ultra_short.mp3::AudioStreamMP3::4997861126152202353::1738219535::1738219675::1::::<><>::
+button_music_ultra_short_speededx3.mp3::AudioStreamMP3::4355260502430603791::1738219535::1738219675::1::::<><>::
+button_music_ultra_short_speedx1.5.mp3::AudioStreamMP3::1472387992694757605::1738219535::1738219675::1::::<><>::
+Crowd_univer.mp3::AudioStreamMP3::175302110436945465::1738219535::1738219675::1::::<><>::
+door_closed.mp3::AudioStreamMP3::2349805583947142065::1738219535::1738219675::1::::<><>::
+door_open.mp3::AudioStreamMP3::649820123428236988::1738219535::1738219675::1::::<><>::
+glitch1.mp3::AudioStreamMP3::2155438219986554965::1738219535::1738219675::1::::<><>::
+glitch2.mp3::AudioStreamMP3::5469054529863060198::1738219535::1738219675::1::::<><>::
+menu_music.mp3::AudioStreamMP3::8163550862187892628::1738219535::1738219675::1::::<><>::
+Phone_call.mp3::AudioStreamMP3::4009597862396424835::1738219535::1738219675::1::::<><>::
+signal-elektronnogo-budilnika-33304.mp3::AudioStreamMP3::9111634437810189152::1738219535::1738219675::1::::<><>::
+Steps1.mp3::AudioStreamMP3::7119541861561827526::1738219535::1738219675::1::::<><>::
+Steps2.mp3::AudioStreamMP3::3810493650359519340::1738219535::1738219675::1::::<><>::
+Steps3.mp3::AudioStreamMP3::8378531528151384774::1738219535::1738219675::1::::<><>::
+Univer_bell.mp3::AudioStreamMP3::5265967190224240584::1738219535::1738219675::1::::<><>::
+::res://Assets/Personages/::1738219646
+Alisa_final.png::CompressedTexture2D::8204441180092216458::1738219535::1738219676::1::::<><>::
+Marina_final.png::CompressedTexture2D::5118954671518603603::1738219535::1738219676::1::::<><>::
+Yuri_Final.png::CompressedTexture2D::3230654708344270112::1738219535::1738219675::1::::<><>::
+::res://Codes/::1738219647
+Day1Returned.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_AfterPhylisophy.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_DayDream.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_InRoad.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_InUniversity.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_PhylosophyLesson.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_scene1.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Day1_scene1_main.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day1_WakeUp.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+DemoDend.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+DialogueBox (2).gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_AfterPhylosophy.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_DayDream.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_InRoad.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_InUniversity.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_PhylosophyLesson.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_Returned.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+DialogueBox_WakeUp.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene2_road_to_univer.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Game_scene4)in_cabinet.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene4_in_cabinet.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene4_in_cabinet.tscn.tres.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Game_scene4_in_cabinet_ma.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene4_in_cabinet_ma.tscn.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene4_in_cabinet_ma.tscn.tres.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene4_in_cabinet_main.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Game_scene4_in_cabinet_main.tscn.tres.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+Game_scene_1_road_to_univer.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+HSlider.gd::GDScript::-1::1738219534::0::1::::<>HSlider<>::
+InRoad_save.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+InUniversity_save.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+In_sc2.gd::GDScript::-1::1738219534::0::1::::<>ColorRect<>::
+Load.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Out_fromsc1.gd::GDScript::-1::1738219534::0::1::::<><>::
+PhylosophyLesson_saves.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Saves_AfterPhylosophy.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Saves_DayDream.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Saves_PhylosophyLesson.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Saves_Returned.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Variant2.gd::GDScript::-1::1738219534::0::1::::<>Button<>::
+VBoxContainer.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+VideoStreamPlayer.gd::GDScript::-1::1738219534::0::1::::<>RefCounted<>::
+WakeUp_save.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Yuri.gd::GDScript::-1::1738219534::0::1::::<>TextureRect<>::
+::res://dialogues/::1738219647
+Dialog_scene1.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene2.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene3.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene4.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene5.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene6.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene7.json::JSON::-1::1738219534::0::1::::<><>::
+Dialog_scene8.json::JSON::-1::1738219534::0::1::::<><>::
+::res://Scenes/::1738219647
+EndDemo.tscn::PackedScene::8575325758696456482::1738219535::0::1::::<><>::res://Codes/DemoDend.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf
+Load.tscn::PackedScene::8699199594357114906::1738219535::0::1::::<><>::uid://bnlkvlchufbx8::::res://Assets/Menu/Bg_Settings.png<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://dokqqwot8lxou::::res://Assets/music/menu_music.mp3<>res://Codes/Load.gd<>uid://bhxyia8xs4mls::::res://Assets/music/button_music.mp3
+Menu.tscn::PackedScene::8041982018447719173::1738219535::0::1::::<><>::uid://glqlm2233ryl::::res://Assets/Menu/Bg_dark_mini.png<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://dokqqwot8lxou::::res://Assets/music/menu_music.mp3<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3
+Settings.tscn::PackedScene::9186572904413981501::1738219535::0::1::::<><>::uid://bnlkvlchufbx8::::res://Assets/Menu/Bg_Settings.png<>res://Codes/HSlider.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://dokqqwot8lxou::::res://Assets/music/menu_music.mp3<>uid://bhxyia8xs4mls::::res://Assets/music/button_music.mp3
+::res://Scenes/Day1/::1738219647
+Day1_AfterPhylisophy.tscn::PackedScene::3851208315617293930::1738219535::0::1::::<><>::res://Codes/Day1_AfterPhylisophy.gd<>uid://pwxaal3fdvel::::res://Assets/Bg-s/Bg_in_Road.jpg<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_AfterPhylosophy.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://c8o02xksevrry::::res://Assets/music/Steps1.mp3<>uid://drmvgp2wej8us::::res://Assets/music/Steps3.mp3<>uid://dbabtec1ohipr::::res://Assets/music/bus_sounds.mp3<>res://Codes/Saves_AfterPhylosophy.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_DayDream.tscn::PackedScene::6540461853311570682::1738219535::0::1::::<><>::res://Codes/Day1_DayDream.gd<>uid://sak4jaf7453l::::res://Assets/Bg-s/DayDreamBg.jpg<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_DayDream.gd<>uid://cj6ir8uqt5qw1::::res://Assets/music/glitch2.mp3<>uid://5yd0t8aaayyf::::res://Assets/music/glitch1.mp3<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>res://Codes/Saves_DayDream.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_dream.tscn::PackedScene::5138086592794038817::1738219535::0::1::::<><>::res://Codes/Day1_scene1_main.gd<>uid://qarwwhe5qikm::::res://Assets/Bg-s/Dream_bg1.jpg<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/Day1_scene1.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://c8o02xksevrry::::res://Assets/music/Steps1.mp3<>uid://d220j15fbiyei::::res://Assets/music/signal-elektronnogo-budilnika-33304.mp3<>res://Codes/VBoxContainer.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_InRoad.tscn::PackedScene::4522709671135906830::1738219535::0::1::::<><>::res://Codes/Day1_InRoad.gd<>uid://pwxaal3fdvel::::res://Assets/Bg-s/Bg_in_Road.jpg<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_InRoad.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://dbabtec1ohipr::::res://Assets/music/bus_sounds.mp3<>uid://c8o02xksevrry::::res://Assets/music/Steps1.mp3<>res://Codes/InRoad_save.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_InUniversity.tscn::PackedScene::7850400869319533755::1738219535::0::1::::<><>::res://Codes/Day1_InUniversity.gd<>uid://c1tr30msltggc::::res://Assets/Bg-s/In_university_bg.jpg<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_InUniversity.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://cq6g2mts8dbd::::res://Assets/music/Crowd_univer.mp3<>res://Codes/InUniversity_save.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_PhylosophyLesson.tscn::PackedScene::5947538976674577766::1738219535::0::1::::<><>::res://Codes/Day1_PhylosophyLesson.gd<>uid://mg23buntxlp1::::res://Assets/Bg-s/Plylosophy_Cabinet_bg.jpg<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_PhylosophyLesson.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://cha4yfb5cowr5::::res://Assets/music/Univer_bell.mp3<>res://Codes/PhylosophyLesson_saves.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_Returned.tscn::PackedScene::1974532466314703428::1738219535::0::1::::<><>::res://Codes/Day1Returned.gd<>uid://b4rnofetfa3h8::::res://Assets/Bg-s/Scene1_apartment.png<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_Returned.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://dbabtec1ohipr::::res://Assets/music/bus_sounds.mp3<>uid://c8o02xksevrry::::res://Assets/music/Steps1.mp3<>uid://ji1pbr0jayg7::::res://Assets/music/door_open.mp3<>res://Codes/Saves_Returned.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day1_WakeUp.tscn::PackedScene::6617321221469850807::1738219535::0::1::::<><>::res://Codes/Day1_WakeUp.gd<>uid://b4rnofetfa3h8::::res://Assets/Bg-s/Scene1_apartment.png<>uid://csuidiadogpwi::::res://Assets/Bg-s/Dialogue_bg.png<>res://Codes/DialogueBox_WakeUp.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://bxejqxtvyko2f::::res://Assets/music/Phone_call.mp3<>uid://8qi7pt3eyknp::::res://Assets/music/door_closed.mp3<>res://Codes/WakeUp_save.gd<>uid://u8iarqk42lrp::::res://Assets/music/button_music_ultra_short_speedx1.5.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+::res://Scenes/Day2/::1738219647
+Day2_scene1.gd::GDScript::-1::1738219534::0::1::::<>Node2D<>::
+Day2_scene1.tscn::PackedScene::8094948109359756704::1738219535::0::1::::<><>::res://Scenes/Day2/Day2_scene1.gd<>uid://b4rnofetfa3h8::::res://Assets/Bg-s/Scene1_apartment.png<>res://Assets/In_fade_scene_1.ogv<>uid://bma7n8fubwdem::::res://Assets/Personages/Yuri_Final.png<>uid://wrj86yp73uai::::res://Assets/Bg-s/Dialojie.png<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://8qi7pt3eyknp::::res://Assets/music/door_closed.mp3<>uid://bxejqxtvyko2f::::res://Assets/music/Phone_call.mp3<>uid://brlp21vll76ml::::res://Assets/Menu/eye_blind.png<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png<>res://Scenes/Day2/VBoxContainer.gd
+Day2_scene2.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+Day2_scene2.tscn::PackedScene::1809182659759251559::1738219535::0::1::::<><>::res://Codes/Game_scene2_road_to_univer.gd<>uid://wrj86yp73uai::::res://Assets/Bg-s/Dialojie.png<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://c8o02xksevrry::::res://Assets/music/Steps1.mp3<>uid://dbabtec1ohipr::::res://Assets/music/bus_sounds.mp3<>uid://brlp21vll76ml::::res://Assets/Menu/eye_blind.png<>res://Scenes/Day2/Day2_scene2.gd<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day2_scene3.tscn::PackedScene::7975958636512836765::1738219535::0::1::::<><>::uid://c75ea4ki23738::::res://Assets/Bg-s/Univer_bg1.jpg<>uid://bma7n8fubwdem::::res://Assets/Personages/Yuri_Final.png<>uid://do5j7hmugy74q::::res://Assets/Personages/Alisa_final.png<>uid://wrj86yp73uai::::res://Assets/Bg-s/Dialojie.png<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://cq6g2mts8dbd::::res://Assets/music/Crowd_univer.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png<>res://Scenes/Day2/VBoxContainer1.gd
+Day2_scene4.tscn::PackedScene::7201001967317189675::1738219535::0::1::::<><>::res://Codes/Game_scene4_in_cabinet_main.gd<>uid://gxvbj5u0d0fx::::res://Assets/Bg-s/in_cabinet.jpg<>uid://bma7n8fubwdem::::res://Assets/Personages/Yuri_Final.png<>uid://do5j7hmugy74q::::res://Assets/Personages/Alisa_final.png<>uid://ce6wo2q532ti6::::res://Assets/Personages/Marina_final.png<>uid://wrj86yp73uai::::res://Assets/Bg-s/Dialojie.png<>res://Codes/Game_scene4_in_cabinet.gd<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://cha4yfb5cowr5::::res://Assets/music/Univer_bell.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+Day2_scene5.tscn::PackedScene::6529448793104149148::1738219535::0::1::::<><>::uid://c75ea4ki23738::::res://Assets/Bg-s/Univer_bg1.jpg<>uid://wrj86yp73uai::::res://Assets/Bg-s/Dialojie.png<>uid://nd838uhky2oy::::res://Assets/Comic Sans MS.ttf<>uid://dbabtec1ohipr::::res://Assets/music/bus_sounds.mp3<>uid://chc4in3ahdfyg::::res://Assets/Bg-s/bg_menu_mini.png
+VBoxContainer1.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
+VBoxContainer.gd::GDScript::-1::1738219534::0::1::::<>VBoxContainer<>::
